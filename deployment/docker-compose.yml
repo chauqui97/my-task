@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+#  onetwothreemart:
+#    build: ./onetwothreemart
+#    depends_on:
+#      - db
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/onetwothreemart?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+#      SPRING_DATASOURCE_USERNAME: onetwothreemart
+#      SPRING_DATASOURCE_PASSWORD: ZCJmkW6olq
+#      REDIS_HOST: redis
+#      APP_SSL: "true"
+#      SHOW_SQL: "false"
+#      SERVER_PORT: 443
+#    tty:
+#      true
+#    restart:
+#      unless-stopped
+#    volumes:
+#      - db-data:/onetwothree/upload
+#  redis:
+#    image: redis:alpine
+#    ports:
+#      - "6379:6379"
+#    restart: unless-stopped
+#    tty: true
+#    volumes:
+#      - redis-data:/data
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_DATABASE: onetwothreemart
+      MYSQL_USER: onetwothreemart
+      MYSQL_PASSWORD: ZCJmkW6olq
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
+  redis-data:

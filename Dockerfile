@@ -4,7 +4,7 @@ MAINTAINER Chau Qui
 
 VOLUME /tmp
 
-ADD "target/onetwothreemart-0.0.1-SNAPSHOT.jar" app.jar
+ADD "target/demo-0.0.1-SNAPSHOT.jar" app.jar
 
 ENV JAVA_OPTS="-Xms256m -Xmx768m"
 
